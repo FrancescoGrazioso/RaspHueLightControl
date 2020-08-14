@@ -4,7 +4,9 @@ A simple Hue light control for raspberry pi and Elegoo ir remote.
 My setup:
 
   -Raspberry Pi Zero
+  
   -Elegoo IR Reciver
+  
   -Elegoo Remote
 
 # HOW TO OBTAIN YOUR HUB IP ADDRESS AND API KEY
