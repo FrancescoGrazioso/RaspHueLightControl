@@ -6,9 +6,6 @@ My setup:
   -Raspberry Pi Zero
   -Elegoo IR Reciver
   -Elegoo Remote
-  
-
---------------SETUP----------------
 
 # HOW TO OBTAIN YOUR HUB IP ADDRESS AND API KEY
 
@@ -51,9 +48,9 @@ Congratulations you’ve just created an authorized user, which we’ll use from
 
 # WIRING
 
-PIN 1 = POWER
-PIN 40 = Ground
-PIN 41 = DATA
+-PIN 1 = POWER;
+-PIN 40 = Ground;
+-PIN 41 = DATA;
 
 
 # HOW TO USE
