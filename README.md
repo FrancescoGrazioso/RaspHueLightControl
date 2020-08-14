@@ -49,8 +49,10 @@ Congratulations you’ve just created an authorized user, which we’ll use from
 # WIRING
 
 -PIN 1 = POWER;
--PIN 40 = Ground;
--PIN 41 = DATA;
+
+-PIN 39 = Ground;
+
+-PIN 40 = DATA;
 
 
 # HOW TO USE
