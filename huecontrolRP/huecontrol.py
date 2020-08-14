@@ -3,11 +3,11 @@ from time import time
 import requests
 
 GPIO.setmode(GPIO.BCM)
+IRDataPin  = 21
+GPIO.setup(IRDataPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-switchUrl = 'http://192.168.1.24/api/TNNz2qfpYYwzo3KLPCMy5zpkeXWexhiRQsNwGYte/lights/1/state'
-stateUrl = 'http://192.168.1.24/api/TNNz2qfpYYwzo3KLPCMy5zpkeXWexhiRQsNwGYte/lights/1/'
+switchUrl = 'http://<hubIP>/api/<yorKeyHere>/lights/1/state'
+stateUrl = 'http://<hubIP>/api/<youKeyHere>/lights/1/'
 
 
 CODES = {
@@ -141,8 +141,8 @@ if __name__ == "__main__":
         print("Starting IR Listener")
         while True:
             print("Waiting for signal")
-            GPIO.wait_for_edge(21, GPIO.FALLING)
-            code = on_ir_receive(21)
+            GPIO.wait_for_edge(IRDataPin, GPIO.FALLING)
+            code = on_ir_receive(IRDataPin)
             if code:
                 key = str(hex(code))
                 try:
@@ -154,14 +154,12 @@ if __name__ == "__main__":
                         else:
                             switchLight()
                 except:
-                        print 'Chiave non esistente'
+                        print 'Key do not exist'
             else:
                 print("Invalid code")
     except KeyboardInterrupt:
         pass
     except RuntimeError:
-        # this gets thrown when control C gets pressed
-        # because wait_for_edge doesn't properly pass this on
         pass
     print("Quitting")
     destroy()
